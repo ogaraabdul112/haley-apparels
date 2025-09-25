@@ -63,6 +63,29 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
+
+//  Mobile Menu Toggle
+        const menuToggle = document.getElementById("menuToggle");
+        const menuClose = document.getElementById("menuClose");
+        const mobileNavbar = document.getElementById("mobileNavbar");
+
+
+        if (menuToggle && mobileNavbar) {
+            menuToggle.addEventListener("click", () => mobileNavbar.classList.add("active"));
+        }
+        if (menuClose && mobileNavbar) {
+            menuClose.addEventListener("click", () => mobileNavbar.classList.remove("active"));
+        }
+        document.addEventListener("click", (e) => {
+            if (
+                mobileNavbar &&
+                !mobileNavbar.contains(e.target) &&
+                !menuToggle?.contains(e.target) &&
+                !menuClose?.contains(e.target)
+            ) {
+                mobileNavbar.classList.remove("active");
+            }
+        });
 // ==================== Sign Up ====================
 document.getElementById("SignUpform")?.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -467,3 +490,4 @@ if (userRef.exists()) {
 document.getElementById("back-btn")?.addEventListener("click", () => {
   window.location.href = "index.html";
 });
+
