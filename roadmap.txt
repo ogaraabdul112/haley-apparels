@@ -1,0 +1,191 @@
+1. Project Setup
+Initialize Git repository
+
+Set up folder structure:
+
+Code
+/client      → frontend files
+/server      → backend files
+/db          → SQL schema and seed data
+2. Frontend Development
+ A. Public Storefront
+Home Page: Product highlights, banners
+
+Product Page: Image, description, price, “Add to Cart”
+
+Cart Page: View items, update quantity, checkout
+
+Language Switcher: JSON-based translation system (English, Dutch, etc.)
+
+Responsive Design: Mobile-first layout using CSS Grid/Flexbox
+
+ B. Translation System
+Create translations.json:
+
+json
+{
+  "en": { "welcome": "Welcome", "cart": "Your cart" },
+  "nl": { "welcome": "Welkom", "cart": "Je winkelwagen" }
+}
+Use JavaScript to swap text based on selected language
+
+3. Backend Development
+ A. Authentication
+Admin login with JWT
+
+Password hashing with bcrypt
+
+ B. Order Management API
+GET /orders → List all orders
+
+POST /orders → Create new order
+
+PUT /orders/:id → Update status (Confirmed, Out of Stock, etc.)
+
+DELETE /orders/:id → Cancel order
+
+ C. Product API
+GET /products → List products
+
+POST /products → Add new product
+
+PUT /products/:id → Edit product
+
+DELETE /products/:id → Remove product
+
+4. Database Design (MySQL)
+ Tables
+users → Admin credentials
+
+products → Product info
+
+orders → Order details
+
+order_items → Items in each order
+
+Example schema:
+
+sql
+CREATE TABLE orders (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  customer_name VARCHAR(255),
+  status ENUM('confirmed', 'out_of_stock', 'out_for_delivery', 'delivered'),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+5. Admin Panel
+🖥️ Features
+Login page
+
+Dashboard with order list
+
+Order detail view with status dropdown
+
+Product management (add/edit/delete)
+
+Search/filter orders by status or date
+
+6. Testing & QA
+Manual testing on desktop and mobile
+
+Form validation
+
+Security checks (SQL injection, auth tokens)
+
+7. Deployment
+Frontend: Deploy to Vercel
+
+Backend: Deploy to Render or Railway
+
+Database: Host on PlanetScale or Supabase
+
+Set up environment variables for secrets
+
+8. Post-Launch
+Add analytics (optional)
+
+Monitor performance
+
+Plan for future features (discount codes, customer accounts, etc.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Apparel (T-Shirts, Hoodies, Sweatshirts)
+Made to Worship – Unisex T-Shirt (€20.00)
+
+Faith Over Fear – Hoodie (€35.00)
+
+Jesus Saves – Crewneck Sweatshirt (€30.00)
+
+God is Dope – T-Shirt (€22.00)
+
+Pray More Worry Less – T-Shirt (€20.00)
+
+Chosen – Oversized Hoodie (€38.00)
+
+Grace Wins – Long Sleeve Shirt (€25.00)
+
+Saved by Grace – Crop Top (€22.00)
+
+Kingdom Culture – Hoodie (€36.00)
+
+Walk by Faith – T-Shirt (€21.00)
+
+Blessed & Highly Favored – Sweatshirt (€32.00)
+
+Jesus Is King – Hoodie (€35.00)
+
+Fearfully Made – T-Shirt (€20.00)
+
+Holy Vibes Only – Crewneck (€30.00)
+
+Redeemed – Long Sleeve Tee (€25.00)
+
+ Mugs & Cups
+Faith Mug – Ceramic Cup (€12.00)
+
+Blessed & Highly Favored Mug (€14.00)
+
+Grace Upon Grace Mug (€13.00)
+
+Pray Big Mug (€12.00)
+
+Jesus Saves Mug (€12.00)
+
+Walk by Faith Mug (€13.00)
+
+Kingdom Kid Mug (€12.00)
+
+God is Good Mug (€14.00)
+
+Hope Dealer Mug (€13.00)
+
+Trust His Timing Mug (€12.00)
+
+ Accessories
+Blessed Cap – Embroidered Hat (€18.00)
+
+Kingdom Kid Beanie (€16.00)
+
+Walk by Faith Tote Bag (€20.00)
+
+Grace Wins Phone Case (€15.00)
+
+Jesus Saves Keychain (€10.00)
+
+
+
+
+bghsPniP1xWZrJ8LNIhSM78UTBd2

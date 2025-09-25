@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Assets/Logo/logo.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <title>Haley Apparels</title>
+    <link rel="stylesheet" href="styles2.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <header class="header-account">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html">Haley<span>Apparels</span></a>
+            </div>
+        </div>
+    </header>
+        <!-- Account Page -->
+         <style>
+        #google_translate_element {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 9999;
+        }
+    </style>
+    <div id="google_translate_element"></div>
+     <main>
+        <div class="account-page">
+           
+            <div class="container">
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Sign up</span>
+                            <hr id="indicator" />
+                        </div>
+
+                        <!-- Login Form -->
+                        <form id="LoginForm">
+                            <input type="email" id="login-email" placeholder="Email" required />
+                            <input type="password" id="login-password" placeholder="Password" required />
+                            <button type="submit" class="btn btn8">Login</button><br>
+                            <a href="#">Forgot password?</a>
+                        </form>
+
+                        <!-- Sign Up Form -->
+                        <form id="SignUpform">
+                            <input type="text" id="signup-name" placeholder="Full Name" required />
+                            <input type="number" id="number" placeholder="Phone Number" required />
+                            <input type="email" id="signup-email" placeholder="Email" required />
+                            <input type="password" id="signup-password" placeholder="Password" required />
+                            <button type="submit" class="btn">Sign up</button>
+                        </form>
+
+
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="user-dashboard" style="display: none;">
+    <div class="dashboard-container">
+        <h2>My Account</h2>
+        
+        <!-- User Info -->
+        <div class="user-info">
+            <p><strong>Name:</strong> <span id="user-name"></span></p>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>Phone:</strong> <span id="user-phone"></span></p>
+            <button id="logout-btn" class="btn">Logout</button>
+            <button id="back-btn" class="btn back">Back</button>
+        </div>
+
+        <hr>
+
+        <!-- Orders -->
+        <div class="user-orders">
+            <h3>My Orders</h3>
+            <div id="orders-list">
+                <p>No orders yet.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+    
+    <!-- ================= User Dashboard Section ================= -->
+
+
+
+    
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="small-container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <h3>Follow</h3>
+                    <p>Our Social Media page</p>
+                    <div class="app-logo">
+
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+                <div class="footer-col-4">
+                    <h3>Privacy Policy</h3>
+                    <ul>
+                        <li>Refund Policy</li>
+                        <li>Terms of Service</li>
+                        <li>Shipping Policy</li>
+                    </ul>
+                </div>
+            </div>
+            <hr />
+            <p class="Copyright">Copyright &copy; 2025 Haley Apparels</p>
+        </div>
+    </div>
+        <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'fr,de,es,sw,ar,zh,pt,hi,yo',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        var LoginForm = document.getElementById("LoginForm");
+        var SignUpform = document.getElementById("SignUpform");
+        var indicator = document.getElementById("indicator");
+
+        function register() {
+            SignUpform.style.transform = "translateX(0px)";
+            LoginForm.style.transform = "translateX(0px)";
+            indicator.style.transform = "translateX(100px)";
+        }
+
+        function login() {
+            SignUpform.style.transform = "translateX(300px)";
+            LoginForm.style.transform = "translateX(300px)";
+            indicator.style.transform = "translateX(0px)";
+        }
+    </script>
+
+    <!-- Firebase Logic -->
+    <script type="module" src="script.js"></script>
+
+</body>

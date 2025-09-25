@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Assets/Logo/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <title>Checkout | Haley Apparels</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Color Swatch Styling */
+    .color-swatch {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1px solid #000;
+      margin-left: 10px;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
+
+    /* Checkout Item */
+    .checkout-item {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fdfdfd;
+    }
+
+    /* Responsive Inputs */
+    #checkoutForm input,
+    #checkoutForm select,
+    #checkoutForm textarea {
+      width: 100%;
+      margin: 8px 0;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .total-display {
+      font-size: 1.2rem;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .loader-overlay {
+      display: none;
+      position: fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #555;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="Assets/Logo/logo.png" alt="Haley Logo"></a>
+      </div>
+
+      <ul class="nav-links desktop-only">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+      </ul>
+
+      <div class="icons">
+        <i class="fas fa-bars menu mobile-only" id="menuToggle"></i>
+        <i class="fas fa-search mobile-only" id="mobileSearchToggle"></i>
+        <a href="account.html"><i class="fas fa-user"></i></a>
+        <a href="cart.html" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== GOOGLE TRANSLATE ===== -->
+  <div id="google_translate_element" class="translate-widget"></div>
+
+  <!-- ===== CHECKOUT SECTION ===== -->
+  <main>
+    <section class="checkout-section">
+      <h1>Checkout</h1>
+
+      <form id="checkoutForm">
+        <!-- Dynamic Cart Items -->
+        <div id="cartItemsContainer"></div>
+
+        <!-- Customer Info -->
+        <h2>Customer Information</h2>
+        <input type="text" name="name" placeholder="Full Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="tel" name="phone" placeholder="Phone Number" required />
+        <textarea name="address" placeholder="Delivery Address" required></textarea>
+
+        <!-- Total -->
+        <div class="total-display">
+          <strong>Total: €<span id="totalAmount">0.00</span></strong>
+        </div>
+
+        <!-- PayPal Checkout -->
+        <div id="paypal-button-container"></div>
+      </form>
+
+      <!-- Loader -->
+      <div class="loader-overlay" id="loaderOverlay">
+        <div class="loader"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  
+    <!-- Footer -->
+  <div class="footer">
+    <div class="parent-container">
+      <div class="logo">
+        <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+      </div>
+    </div>
+    <div class="small-container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Follow</h3>
+          <p>Our Social Media page</p>
+          <div class="app-logo">
+
+            <i class="fab fa-facebook-f"> </i>
+            <i class="fab fa-instagram"> </i>
+          </div>
+        </div>
+        <div class="footer-col-4">
+          <h3>Privacy Policy</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html#shirts">T-shirts</a></li>
+            <li><a href="shop.html#hoodie">Hoodies</a></li>
+            <li><a href="shop.html#mug">Mugs</a></li>
+            <li><a href="shop.html#crewneck">Crewnecks</a></li>
+            <li><a href="shop.html#kids">Kids</a></li>
+            <li><a href="shop.html#baseball">Baseball Cap</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="delivery.html">Delivery</a></li>
+            <li><a href="refund.html">Refund Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+              <div class="partners">
+            
+            <div class="partners-logo">
+                <img src="./Assets/mastercard.JPG" alt="">
+                <img src="./Assets/klarna.JPG" alt="">
+                <img src="./Assets/visa.JPG" alt="">
+                <img src="./Assets/paypal.JPG" alt="">
+            </div>
+        </div>
+        <hr />
+            <p class="Copyright">Copyright &copy; 2025 Haley Apparels</p>
+  </div>
+
+
+  <!-- ===== GOOGLE TRANSLATE SCRIPT ===== -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'fr,de,es,sw,ar,zh,pt,hi,yo',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- PayPal SDK -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AXtojJSijBDtiXiWOeV0BQMWNFw6RAU2fs4oPnkgrmlxgxdi0L5znxDVVvXgM-acBu8yomLkl9HJYuTw&currency=EUR"></script>
+
+  <!-- Main Script -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>

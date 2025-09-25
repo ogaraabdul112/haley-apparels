@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Assets/Logo/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <title>Admin Dashboard | Haley Store</title>
+  <link rel="stylesheet" href="admin.css" />
+
+  <style>
+    /*  Toast Notifications */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 11000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .toast {
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #fff;
+      animation: slideIn 0.4s ease, fadeOut 0.4s ease 3s forwards;
+    }
+    .toast.success { background: #28a745; }
+    .toast.error { background: #dc3545; }
+    .toast.warning { background: #f0ad4e; }
+    @keyframes slideIn {
+      from { transform: translateX(120%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes fadeOut {
+      to { opacity: 0; transform: translateX(120%); }
+    }
+
+    /*  Confirm Modal */
+    .confirm-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.6);
+      z-index: 12000;
+    }
+    .confirm-box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+    }
+    .confirm-box h3 { margin-bottom: 12px; }
+    .confirm-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .confirm-btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+    .confirm-btn.confirm { background: #dc3545; color: #fff; }
+    .confirm-btn.cancel { background: #6c757d; color: #fff; }
+
+    /*  Global Loader Spinner */
+    .loader-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 13000;
+      display: none;
+    }
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <!--  Login Screen -->
+  <div id="loginScreen" class="auth-screen">
+    <h2>Admin Login</h2>
+    <form id="loginForm">
+      <input type="email" id="adminEmail" placeholder="Admin Email" required />
+      <input type="password" id="adminPassword" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p id="loginError" class="error-text"></p>
+  </div>
+
+  <!--  Admin Dashboard -->
+  <div id="adminDashboard" style="display: none;">
+    <header>
+      <h1>Haley Apparels Admin Panel</h1>
+      <button id="logoutBtn">Logout</button>
+    </header>
+
+    <nav class="admin-nav">
+      <button id="showAddProduct">Add Product</button>
+      <button id="showOrders">View Orders</button>
+      <button id="showArchived">View Archived</button>
+    </nav>
+
+    <main>
+      <!--  Google Translate -->
+      <div id="google_translate_element"></div>
+
+      <!--  Add Product -->
+      <section id="addProductSection" class="dashboard-section">
+        <h2>Add New Product</h2>
+        <form id="addProductForm" class="form-grid">
+          <label>Product Name:<input type="text" name="name" required /></label>
+          <label>Price (€):<input type="number" name="price" step="0.01" required /></label>
+          <label>Description:<textarea name="description" required></textarea></label>
+          <label>Image URL:<input type="text" name="imageUrl" required /></label>
+          <button type="submit">Add Product</button>
+        </form>
+        <div id="productPreview" class="product-grid"></div>
+      </section>
+
+      <!--  Orders -->
+      <section id="ordersSection" class="dashboard-section" style="display:none;">
+        <h2>Customer Orders</h2>
+        <form id="filterForm" class="filter-form">
+          <input type="text" id="filterUserId" placeholder="Filter by User ID" />
+          <input type="text" id="filterDate" placeholder="Filter by Date" />
+          <button type="submit">Apply Filters</button>
+        </form>
+        <table id="ordersTable">
+          <thead>
+            <tr>
+              <th>User ID</th>
+              <th>Customer Info</th>
+              <th>Items</th>
+              <th>Total (€)</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <!--  Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!--  Loader Overlay -->
+  <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader"></div>
+  </div>
+
+  <!-- Google Translate Script -->
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'fr,de,es,sw,ar,zh,pt,hi,yo',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Assets/Logo/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <title>Contact / Haley Apparels</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="parent-container" id="first">
+      <div class="logo">
+        <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+      </div>
+    </div>
+
+
+    <nav class="navbar">
+
+      <div class="parent-container" id="second">
+        <div class="logo">
+          <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+        </div>
+      </div>
+
+      <ul class="nav-links desktop-only">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="shop.html#shirts">T-shirts</a></li>
+        <li><a href="shop.html#hoodie">Hoodies</a></li>
+        <li><a href="shop.html#mug">Mugs</a></li>
+        <li><a href="shop.html#crewneck">Crewnecks</a></li>
+        <li><a href="shop.html#kids">Kids</a></li>
+        <li><a href="shop.html#baseball">Baseball Cap</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+
+      </ul>
+
+      <div class="icons">
+        <i class="fas fa-bars menu mobile-only" id="menuToggle"></i>
+        <i class="fas fa-search mobile-search-icon mobile-only" id="mobileSearchToggle"></i>
+        <a href="account.html" class="user-icon"><i class="fas fa-user"></i></a>
+        <a href="cart.html" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+
+
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="mobile-search-area mobile-only" id="mobileSearchArea">
+    <input type="text" id="mobileSearchInput" placeholder="Search products..." />
+    <div id="mobileSuggestionsBox" class="suggestions-box"></div>
+  </div>
+
+  <div class="mobile-navbar" id="mobileNavbar">
+    <i class="fas fa-times menu close" id="menuClose"></i>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="shop.html#shirts">T-shirts</a></li>
+      <li><a href="shop.html#hoodie">Hoodies</a></li>
+      <li><a href="shop.html#mug">Mugs</a></li>
+      <li><a href="shop.html#crewneck">Crewnecks</a></li>
+      <li><a href="shop.html#kids">Kids</a></li>
+      <li><a href="shop.html#baseball">Baseball Cap</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="delivery.html">Delivery</a></li>
+
+    </ul>
+  </div>
+
+  <p id="noResults" style="display: none;">No results found. Try a different keyword.</p>
+  <style>
+    #google_translate_element {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+      background-color: #4285F4;
+      /* Google blue */
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      max-width: 90vw;
+      /* Responsive width */
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /*  Mobile-Friendly Adjustments */
+    @media (max-width: 480px) {
+      #google_translate_element {
+        top: 10px;
+        left: 10px;
+        font-size: 12px;
+        padding: 4px 8px;
+      }
+    }
+
+    /*  Optional: Hover effect for interactivity */
+    #google_translate_element:hover {
+      background-color: #3367D6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /*  Optional: Sticky behavior on scroll */
+    body.scrolled #google_translate_element {
+      opacity: 0.8;
+    }
+
+    /*  Optional: Collapsible toggle (requires JS) */
+    #google_translate_element.collapsed {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      text-indent: -9999px;
+    }
+  </style>
+  <i class="fas fa-language">
+    <div id="google_translate_element"></div>
+  </i>
+
+    <!-- Main content -->
+    <!-- Main content -->
+    <!-- Main content -->
+
+
+
+    <!-- section -->
+    
+    
+
+        <section class="contact-section">
+  <h2>Contact Us</h2>
+  <p>We’d love to hear from you. Whether you have a question, feedback, or a custom request — we’re here to help.</p>
+
+  <div class="contact-details">
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:info@haleycustomapparel.de">info@haleycustomapparel.de</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fas fa-phone-alt"></i>
+      <span>0049 173 6922935</span>
+    </div>
+  </div>
+
+  <div class="social-media">
+    <h3>Follow Us</h3>
+    <a href="http://facebook.com/haley_apparels" target="_blank" class="social-icon facebook">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    <a href="http://instagram.com/haley_custom_apparel/" target="_blank" class="social-icon instagram">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+  </div>
+</section>
+
+
+    <!-------------------------- best sellers   --------------------->
+    <!-------------------------- best sellers   --------------------->
+
+    <section class="product-section">
+        <h1>Available Products</h1>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="Assets/Crowneck/Front_49.jpg" alt="purpose Sweatshirt" />
+                <h3>purpose Sweatshirt</h3>
+                <p class="price">€35.00</p>
+                <button class="add-to-cart" data-id="crew001" data-name="purpose Sweatshirt" data-price="35">
+                    Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Kids/Person1Front_16.png" alt="Radiate positivity" />
+                <h3>Radiate positivity</h3>
+                <p class="price">€19.99</p>
+                <button class="add-to-cart" data-id="kids001" data-name="Radiate positivity" data-price="19.99">
+                    Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Crowneck/Front_55.jpg" alt="Rooted in Christ Hoodie" />
+                <h3>Rooted in Christ Hoodie</h3>
+                <p class="price">€39.99</p>
+                <button class="add-to-cart" data-id="hoodie002" data-name="Rooted in Christ Hoodie"
+                    data-price="39.99">Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Kids/Person1Front_7.png" alt="Follow your dream girl shirt" />
+                <h3>Follow your dream girl shirt</h3>
+                <p class="price">€19.99</p>
+                <button class="add-to-cart" data-id="kids001" data-name="Follow your dream girl shirt"
+                    data-price="19.99">Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Shirt/Front_20.jpg" alt="Made to Worship Tee" />
+                <h3>Made to Worship Tee</h3>
+                <p class="price">€20.00</p>
+                <button class="add-to-cart" data-id="shirt001" data-name="Made to Worship Tee" data-price="20">Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Cups/Context_3.jpg" alt="custom Mug" />
+                <h3>custom Mug</h3>
+                <p class="price">€12.00</p>
+                <button class="add-to-cart" data-id="mug001" data-name="custom mugs" data-price="12">Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Cap/cap1.jpg" alt="Faith Cap" />
+                <h3>Rooted in Christ</h3>
+                <p class="price">€14.99</p>
+                <button class="add-to-cart" data-id="cap001" data-name="Rooted in Christ" data-price="14.99">Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Shirt/Hanging3.png" alt="Flourish Cotton Tee" />
+                <h3>Flourish Cotton Tee</h3>
+                <p class="price">€25.00</p>
+                <button class="add-to-cart" data-id="shirt002" data-name="Flourish Cotton Tee" data-price="25">Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="Assets/Crowneck/Front_3_ab205236-7f47-4971-9301-ba27b72e1efc.jpg" alt="Made To Worship" />
+                <h3>Made To Worship</h3>
+                <p class="price">€35.00</p>
+                <button class="add-to-cart" data-id="crew001" data-name="Made To Worship" data-price="35">Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="product-section" id="newProductsSection" style="display: none;">
+        <h1>New Products</h1>
+        <div class="product-grid" id="newProductsGrid"></div>
+    </section>
+    <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader"></div>
+  </div>
+    <!-- Footer -->
+  <div class="footer">
+    <div class="parent-container">
+      <div class="logo">
+        <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+      </div>
+    </div>
+    <div class="small-container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Follow</h3>
+          <p>Our Social Media page</p>
+          <div class="app-logo">
+
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="footer-col-4">
+          <h3>Privacy Policy</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html#shirts">T-shirts</a></li>
+            <li><a href="shop.html#hoodie">Hoodies</a></li>
+            <li><a href="shop.html#mug">Mugs</a></li>
+            <li><a href="shop.html#crewneck">Crewnecks</a></li>
+            <li><a href="shop.html#kids">Kids</a></li>
+            <li><a href="shop.html#baseball">Baseball Cap</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="delivery.html">Delivery</a></li>
+            <li><a href="refund.html">Refund Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+            <div class="partners">
+            
+            <div class="partners-logo">
+                <img src="./Assets/mastercard.JPG" alt="">
+                <img src="./Assets/klarna.JPG" alt="">
+                <img src="./Assets/visa.JPG" alt="">
+                <img src="./Assets/paypal.JPG" alt="">
+            </div>
+        </div>
+        <hr />
+            <p class="Copyright">Copyright &copy; 2025 Haley Apparels</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const widget = document.getElementById("google_translate_element");
+      let lastScrollTop = 0;
+
+      //  Toggle collapse on click
+      widget.addEventListener("click", function () {
+        widget.classList.toggle("collapsed");
+      });
+
+      // Auto-hide on scroll down, show on scroll up
+      window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Scrolling down
+          widget.style.opacity = "0";
+        } else {
+          // Scrolling up
+          widget.style.opacity = "1";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+      });
+    });
+  </script>
+
+
+
+
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'fr,de,es,sw,ar,zh,pt,hi,yo',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

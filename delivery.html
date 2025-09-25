@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="Assets/Logo/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <title>Checkout/ Haley Apparels</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <header>
+    <div class="parent-container" id="first">
+      <div class="logo">
+        <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+      </div>
+    </div>
+
+
+    <nav class="navbar">
+
+      <div class="parent-container" id="second">
+        <div class="logo">
+          <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+        </div>
+      </div>
+
+      <ul class="nav-links desktop-only">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="shop.html#shirts">T-shirts</a></li>
+        <li><a href="shop.html#hoodie">Hoodies</a></li>
+        <li><a href="shop.html#mug">Mugs</a></li>
+        <li><a href="shop.html#crewneck">Crewnecks</a></li>
+        <li><a href="shop.html#kids">Kids</a></li>
+        <li><a href="shop.html#baseball">Baseball Cap</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="delivery.html">Delivery</a></li>
+
+      </ul>
+
+      <div class="icons">
+        <i class="fas fa-bars menu mobile-only" id="menuToggle"></i>
+        <i class="fas fa-search mobile-search-icon mobile-only" id="mobileSearchToggle"></i>
+        <a href="account.html" class="user-icon"><i class="fas fa-user"></i></a>
+        <a href="cart.html" class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+
+
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="mobile-search-area mobile-only" id="mobileSearchArea">
+    <input type="text" id="mobileSearchInput" placeholder="Search products..." />
+    <div id="mobileSuggestionsBox" class="suggestions-box"></div>
+  </div>
+
+  <div class="mobile-navbar" id="mobileNavbar">
+    <i class="fas fa-times menu close" id="menuClose"></i>
+
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="shop.html#shirts">T-shirts</a></li>
+      <li><a href="shop.html#hoodie">Hoodies</a></li>
+      <li><a href="shop.html#mug">Mugs</a></li>
+      <li><a href="shop.html#crewneck">Crewnecks</a></li>
+      <li><a href="shop.html#kids">Kids</a></li>
+      <li><a href="shop.html#baseball">Baseball Cap</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="delivery.html">Delivery</a></li>
+
+    </ul>
+  </div>
+
+  <p id="noResults" style="display: none;">No results found. Try a different keyword.</p>
+  <style>
+    #google_translate_element {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+      background-color: #4285F4;
+      /* Google blue */
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      max-width: 90vw;
+      /* Responsive width */
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /*  Mobile-Friendly Adjustments */
+    @media (max-width: 480px) {
+      #google_translate_element {
+        top: 10px;
+        left: 10px;
+        font-size: 12px;
+        padding: 4px 8px;
+      }
+    }
+
+    /*  Optional: Hover effect for interactivity */
+    #google_translate_element:hover {
+      background-color: #3367D6;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /*  Optional: Sticky behavior on scroll */
+    body.scrolled #google_translate_element {
+      opacity: 0.8;
+    }
+
+    /*  Optional: Collapsible toggle (requires JS) */
+    #google_translate_element.collapsed {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-radius: 50%;
+      text-indent: -9999px;
+    }
+  </style>
+  <i class="fas fa-language">
+    <div id="google_translate_element"></div>
+  </i>
+
+    <!-- Main Content -->
+    <main>
+        <section class="confirmation-section">
+            <h1> Thank You for Your Order!</h1>
+            <p>your order is being processed.</p>
+            <p><strong>Estimated Delivery:</strong> 3–5 business days</p>
+
+            <div id="orderSummary">
+                <h2>Order Summary</h2>
+                <ul id="orderItems"></ul>
+                <p><strong>Total Paid:</strong> €<span id="orderTotal">0.00</span></p>
+            </div>
+
+            <div id="customerInfo">
+                <h2>Delivery Details</h2>
+                <p><strong>Name:</strong> <span id="customerName"></span></p>
+                <p><strong>Email:</strong> <span id="customerEmail"></span></p>
+                <p><strong>Phone:</strong> <span id="customerPhone"></span></p>
+                <p><strong>Address:</strong> <span id="customerAddress"></span></p>
+            </div>
+
+            <a href="shop.html" class="cta-button">Continue Shopping</a>
+        </section>
+        <div class="loader-overlay" id="loaderOverlay">
+    <div class="loader"></div>
+  </div>
+    </main>
+
+    <!-- Footer -->
+  <div class="footer">
+    <div class="parent-container">
+      <div class="logo">
+        <a href="index.html"><img src="Assets/Logo/logo.png" alt=""></span></a>
+      </div>
+    </div>
+    <div class="small-container">
+      <div class="row">
+        <div class="footer-col-1">
+          <h3>Follow</h3>
+          <p>Our Social Media page</p>
+          <div class="app-logo">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+          </div>
+        </div>
+        <div class="footer-col-4">
+          <h3>Privacy Policy</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="shop.html#shirts">T-shirts</a></li>
+            <li><a href="shop.html#hoodie">Hoodies</a></li>
+            <li><a href="shop.html#mug">Mugs</a></li>
+            <li><a href="shop.html#crewneck">Crewnecks</a></li>
+            <li><a href="shop.html#kids">Kids</a></li>
+            <li><a href="shop.html#baseball">Baseball Cap</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="delivery.html">Delivery</a></li>
+           <li><a href="refund.html">Refund Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="shipping.html">Shipping Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+            <div class="partners">
+            
+            <div class="partners-logo">
+                <img src="./Assets/mastercard.JPG" alt="">
+                <img src="./Assets/klarna.JPG" alt="">
+                <img src="./Assets/visa.JPG" alt="">
+                <img src="./Assets/paypal.JPG" alt="">
+            </div>
+        </div>
+        <hr />
+            <p class="Copyright">Copyright &copy; 2025 Haley Apparels</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const widget = document.getElementById("google_translate_element");
+      let lastScrollTop = 0;
+
+      // Toggle collapse on click
+      widget.addEventListener("click", function () {
+        widget.classList.toggle("collapsed");
+      });
+
+      //  Auto-hide on scroll down, show on scroll up
+      window.addEventListener("scroll", function () {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+          // Scrolling down
+          widget.style.opacity = "0";
+        } else {
+          // Scrolling up
+          widget.style.opacity = "1";
+        }
+
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Avoid negative scroll
+      });
+    });
+  </script>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'fr,de,es,sw,ar,zh,pt,hi,yo',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="module">
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+        import { getFirestore, collection, query, where, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+        //  Firebase Config
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "haley-store.firebaseapp.com",
+            projectId: "haley-store",
+            storageBucket: "haley-store.appspot.com",
+            messagingSenderId: "977097123673",
+            appId: "1:977097123673:web:ad41af4bbcef4c1344ce48",
+            measurementId: "G-2M1ZXGJNNP"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        //  Load Latest Order from Firestore
+        onAuthStateChanged(auth, async (user) => {
+            if (!user) return;
+
+            const ordersRef = collection(db, "orders");
+            const q = query(
+                ordersRef,
+                where("userId", "==", user.uid),
+                orderBy("timestamp", "desc"),
+                limit(1)
+            );
+
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+                const orderData = querySnapshot.docs[0].data();
+
+                document.getElementById("orderTotal").textContent = orderData.total;
+
+                const itemsList = document.getElementById("orderItems");
+                orderData.items.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.quantity} × ${item.name} (${item.size}) - €${item.total}`;
+                    itemsList.appendChild(li);
+                });
+
+                document.getElementById("customerName").textContent = orderData.customer.name;
+                document.getElementById("customerEmail").textContent = orderData.customer.email;
+                document.getElementById("customerPhone").textContent = orderData.customer.phone;
+                document.getElementById("customerAddress").textContent = orderData.customer.address;
+            } else {
+                document.getElementById("orderItems").innerHTML = "<li>No recent orders found.</li>";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
